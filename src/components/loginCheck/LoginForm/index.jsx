@@ -1,5 +1,4 @@
 import { useState } from "react"
-import "./index.css"
 
 export const LoginForm = (props) => {
     const [name, nameSet] = useState()
@@ -12,7 +11,7 @@ export const LoginForm = (props) => {
         }
         props.login(name, surname)
     }
-    
+
     const handleName = (event) => {
         nameSet(event.target.value)
     }
@@ -26,6 +25,12 @@ export const LoginForm = (props) => {
             <p>Введіть ваше ім'я:</p>
             <form
                 onSubmit={handleSubmit}
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    width: "350px",
+                    gap: "10px",
+                }}
             >
                 <input
                     type="text"
@@ -41,7 +46,7 @@ export const LoginForm = (props) => {
                     value={surname}
                     onChange={handleSurname}
                 />
-                <button type="submit">Увійти</button>
+                <button type="submit" style={{margin: "20px 0"}}>Увійти</button>
             </form>
         </div>
     )
